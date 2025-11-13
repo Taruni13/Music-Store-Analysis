@@ -129,7 +129,7 @@ The following analytical topics are covered:
 
 All questions are documented in: `analysis_questions.md`
 
-- Key Features Demonstrated
+## Key Features Demonstrated
 - Complete relational schema
 - 50+ realistic dataset rows
 - Fully normalized design
