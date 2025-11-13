@@ -40,35 +40,36 @@ Music-Store-Analysis/
 - PL/pgSQL (functions & stored procedure-style logic)
 - VS Code / PgAdmin / DBeaver
 
-## Database Schema (High-Level)
+## Database Tables Overview
 
 The database contains 11 main tables:
 
-Table	Description
-Artist	List of artists
-Album	Albums created by artists
-Genre	Music genres
-MediaType	Audio file types
-Track	Individual songs
-Customer	Customers who purchase music
-Employee	Sales/support employees
-Invoice	Purchase orders
-InvoiceLine	Line items inside invoices
-Playlist	User playlists
-PlaylistTrack	Mapping of tracks to playlists
+| Table             | Description                    |
+| ----------------- | ------------------------------ |
+| **Artist**        | List of artists                |
+| **Album**         | Albums created by artists      |
+| **Genre**         | Music genres                   |
+| **MediaType**     | Audio file types               |
+| **Track**         | Individual songs               |
+| **Customer**      | Customers who purchase music   |
+| **Employee**      | Sales/support employees        |
+| **Invoice**       | Purchase orders                |
+| **InvoiceLine**   | Line items inside invoices     |
+| **Playlist**      | User playlists                 |
+| **PlaylistTrack** | Mapping of tracks to playlists |
 
 For full details, see: `database/schema.md`
 
 ### 1. How to Create the Database
-
+```
 `psql -d your_database_name -f database/schema.sql`
-
+```
 Or copy–paste the schema manually from `schema.md`.
 
 ### 2. Load 50+ Rows of Sample Data
-
+```
 `psql -d your_database_name -f database/sample_data_inserts.sql`
-
+```
 Validate:
 ```
 SELECT COUNT(*) FROM customer;
@@ -77,9 +78,9 @@ SELECT COUNT(*) FROM invoice;
 ```
 
 ### 3. Load Stored Procedures (PostgreSQL Functions)
-
+```
 `psql -d your_database_name -f database/stored_procedures_postgres.sql`
-
+```
 ### Example usage:
 
 ```
@@ -88,9 +89,9 @@ SELECT * FROM sp_getinvoicesummary('2025-03-01', '2025-03-31');
 ```
 
 ### 4. Load Utility Functions (UDFs)
-
+```
 `psql -d your_database_name -f database/functions_postgres.sql`
-
+```
 ### Examples:
 ```
 SELECT fn_totalspentbycustomer(1);
@@ -107,9 +108,9 @@ LIMIT 5;
 All answers to all questions from questions.md are in one file: `sql_queries/analysis_answers.sql`
 
 ### Execute it:
-
+```
 `psql -d your_database_name -f sql_queries/analysisanswers.sql`
-
+```
 Or run individual queries manually in pgAdmin.
 
 ### 6. Analytical Questions Included
